@@ -1,0 +1,16 @@
+# CodeRabbit configuration file
+language: 'ru-RU'
+tone_instructions: 'Пишите все комментарии и отзывы на русском языке.'
+
+reviews:
+    profile: 'assertive'
+    high_level_summary: true
+    review_status: true
+    collapse_walkthrough: false
+    auto_review:
+        enabled: true
+        drafts: false
+        auto_incremental_review: true
+
+chat:
+    auto_reply: true

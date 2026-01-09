@@ -2,9 +2,9 @@
 // See: https://next-intl.dev/docs/workflows/typescript#messages-arguments
 
 declare const messages: {
-  "header": {
-    "home": "Home",
-    "coins": "All Coins"
-  }
+    "header": {
+        "home": "Home",
+        "coins": "All Coins"
+    }
 };
 export default messages;

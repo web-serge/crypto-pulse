@@ -1,5 +1,7 @@
 import { clsx, type ClassValue } from 'clsx';
+import { Time } from 'lightweight-charts';
 import { twMerge } from 'tailwind-merge';
+import { OHLCData } from '@/type';
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -68,37 +70,14 @@ export function timeAgo(date: string | number | Date): string {
     return past.toISOString().split('T')[0];
 }
 
-export const ELLIPSIS = 'ellipsis' as const;
-export const buildPageNumbers = (currentPage: number, totalPages: number): (number | typeof ELLIPSIS)[] => {
-    const MAX_VISIBLE_PAGES = 5;
-
-    const pages: (number | typeof ELLIPSIS)[] = [];
-
-    if (totalPages <= MAX_VISIBLE_PAGES) {
-        for (let i = 1; i <= totalPages; i += 1) {
-            pages.push(i);
-        }
-        return pages;
-    }
-
-    pages.push(1);
-
-    const start = Math.max(2, currentPage - 1);
-    const end = Math.min(totalPages - 1, currentPage + 1);
-
-    if (start > 2) {
-        pages.push(ELLIPSIS);
-    }
-
-    for (let i = start; i <= end; i += 1) {
-        pages.push(i);
-    }
-
-    if (end < totalPages - 1) {
-        pages.push(ELLIPSIS);
-    }
-
-    pages.push(totalPages);
-
-    return pages;
-};
+export function convertOHLCData(data: OHLCData[]) {
+    return data
+        .map((d) => ({
+            time: d[0] as Time, // ensure seconds, not ms
+            open: d[1],
+            high: d[2],
+            low: d[3],
+            close: d[4],
+        }))
+        .filter((item, index, arr) => index === 0 || item.time !== arr[index - 1].time);
+}

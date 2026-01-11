@@ -81,5 +81,3 @@ export function convertOHLCData(data: OHLCData[]) {
         }))
         .filter((item, index, arr) => index === 0 || item.time !== arr[index - 1].time);
 }
-
-export const ELLIPSIS = 'ellipsis' as const;

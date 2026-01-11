@@ -36,9 +36,9 @@ export const Chart = ({ coinId, initialPeriod = 'daily', height = 360, data, chi
     const handlePeriodChange = (newPeriod: Period) => {
         if (newPeriod === period) return;
 
+        setPeriod(newPeriod);
         startTransition(async () => {
-            setPeriod(newPeriod);
-            await fetchOHLCData(newPeriod);
+            fetchOHLCData(newPeriod);
         });
     };
 

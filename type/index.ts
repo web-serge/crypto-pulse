@@ -1,5 +1,7 @@
+export * from './Category';
 export * from './CoinDetailsData';
 export * from './CoinGeckoErrorBody';
+export * from './CoinMarketData';
 export * from './DataTable';
 export * from './OHLCData';
 export * from './PoolData';

@@ -68,14 +68,13 @@ export const getChartConfig = (height: number, timeVisible: boolean = true): Dee
     },
 });
 
-export const PERIOD_CONFIG: Record<Period, { days: number | string; interval?: 'hourly' | 'daily' }> = {
-    daily: { days: 1, interval: 'hourly' },
-    weekly: { days: 7, interval: 'hourly' },
-    monthly: { days: 30, interval: 'hourly' },
-    '3months': { days: 90, interval: 'daily' },
-    '6months': { days: 180, interval: 'daily' },
+export const PERIOD_CONFIG: Record<Period, { days: number | string }> = {
+    daily: { days: 1 },
+    weekly: { days: 7 },
+    monthly: { days: 30 },
+    '3months': { days: 90 },
+    '6months': { days: 180 },
     yearly: { days: 365 },
-    max: { days: 'max' },
 };
 
 export const PERIOD_BUTTONS: { value: Period; label: string }[] = [
@@ -85,5 +84,4 @@ export const PERIOD_BUTTONS: { value: Period; label: string }[] = [
     { value: '3months', label: '3M' },
     { value: '6months', label: '6M' },
     { value: 'yearly', label: '1Y' },
-    { value: 'max', label: 'Max' },
 ];

@@ -3,6 +3,7 @@ import { CoinOverview } from '@/components/home/CoinOverview';
 import { TrendingCoins } from '@/components/home/TrandingCoins';
 import { TrendingCoinsSkeleton } from '@/components/home/TrendingCoinsSkeleton';
 import { CoinOverviewSkeleton } from '@/components/home/CoinOverviewSkeleton';
+import { Categories } from '@/components/home/Categories';
 
 const Page = async () => {
     return (
@@ -15,8 +16,10 @@ const Page = async () => {
                     <TrendingCoins />
                 </Suspense>
             </section>
-            <section className="w-full">
-                <p>Categories</p>
+            <section className="w-full mt-7 space-y-4">
+                <Suspense>
+                    <Categories />
+                </Suspense>
             </section>
         </main>
     );
